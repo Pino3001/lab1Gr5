@@ -1,5 +1,10 @@
+#ifndef EMPRESA_H
+#define EMPRESA_H
+
 #include <string>
 #include "Empleado.h"
+
+#define MAX_EMPLEADO 100
 
 using namespace std;
 
@@ -9,25 +14,26 @@ private:
     string nombre;
     string nombre_legal;
     int rut;
-    Empleado * empleados[MAX_EMPLEADO];
+    Empleado *empleados[MAX_EMPLEADO];
 
 public:
     Empresa();
     Empresa(string, string, int);
-    Empresa(Empleado);
+    // Empresa(Empleado);
 
     void setNombre(string);
     void setNombre_legal(string);
     void setRut(int);
-    void setEmpleado(Empleado);
+    void setEmpleado(Empleado *);
 
     string getNombre();
     string getNombre_legal();
-    string getRut();
+    int getRut();
 
-    int total_sueldo_peso(int);
-    int total_sueldo_dolar(int);
-    
+    void addEmpleado(Empleado *);
+    void removEmpleado(Empleado *);
 
-
+    int total_sueldo_peso();
+    int total_sueldo_dolar();
 };
+#endif

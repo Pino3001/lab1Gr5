@@ -1,3 +1,5 @@
+#ifndef MONEDA_H
+#define MONEDA_H
 
 enum _tipo_cambio {
     us,
@@ -5,3 +7,5 @@ enum _tipo_cambio {
 };
 
 typedef enum _tipo_cambio moneda;
+
+#endif

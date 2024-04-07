@@ -8,8 +8,10 @@ Empleado.o: Empleado.h Empleado.cpp
 	g++ -c Empleado.cpp
 
 Empresa.o: Empresa.h Empresa.cpp
-	g++ -c Empresa.h Empresa.cpp
+	g++ -c Empresa.cpp
 
+Jornalero.o: Jornalero.h Jornalero.cpp
+	g++ -c Jornalero.cpp
 
 limpiar:
 	rm *.o

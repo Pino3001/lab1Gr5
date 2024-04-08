@@ -3,6 +3,7 @@
 #include <string>
 #include "Empresa.h"
 #include "paga.h"
+#include "Cambio.h"
 
 using namespace std;
 

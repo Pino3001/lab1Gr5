@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Empleado.h"
+#include "Cambio.h"
 using namespace std;
 
 class Jornalero : public Empleado
@@ -11,14 +12,14 @@ private:
     int horas;
 public:
     Jornalero();
-    Jornalero(string, string, int);
+    Jornalero(string, string, int, Empresa*, paga, int);
 
     void setHoras(int);
 
     int getHoras();
 
-    int get_sueldo_peso();
-    int get_sueldo_dolar();
+    float get_sueldo_peso();
+    float get_sueldo_dolar();
 
     ~Jornalero();
 };

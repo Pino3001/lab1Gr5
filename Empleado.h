@@ -4,6 +4,7 @@
 #include <string>
 #include "Empresa.h"
 #include "paga.h"
+#include "Cambio.h"
 using namespace std;
 
 class Empleado
@@ -30,8 +31,8 @@ public:
     paga getValorhora();
     Empresa* getEmpresa();
 
-virtual int get_sueldo_peso()=0;
-virtual int get_sueldo_dolar()=0;
+virtual float get_sueldo_peso()=0;
+virtual float get_sueldo_dolar()=0;
 virtual ~Empleado();
 
 };

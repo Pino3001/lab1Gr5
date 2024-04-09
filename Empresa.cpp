@@ -22,6 +22,10 @@ Empresa::Empresa(string nombre, string nombre_legal, int rut)
     this->nombre = nombre;
     this->nombre_legal = nombre_legal;
     this->rut = rut;
+        for (int i = 0; i < MAX_EMPLEADO; ++i)
+    {
+        this->empleados[i] = NULL; // Inicializar cada elemento como null
+    }
 }
 
 void Empresa::setNombre(string nombre)
@@ -70,16 +74,15 @@ void Empresa::addEmpleado(Empleado *emp)
     }
     /*VER COMO MANEJAR LOS CASOS DE DONDE EL ARREGLO ESTE LLENO*/
 }
-void Empresa:: removEmpleado(Empleado *emp){
+void Empresa::removEmpleado(Empleado *emp)
+{
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
         if (this->empleados[i] == emp)
         {
             this->empleados[i] = NULL;
         }
-        
     }
-    
 }
 
 int Empresa::total_sueldo_peso()

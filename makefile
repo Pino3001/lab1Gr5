@@ -22,6 +22,8 @@ paga.o: paga.h paga.cpp
 Cambio.o: Cambio.h Cambio.cpp
 	g++ -c Cambio.cpp
 
-limpiar:
-	rm *.o
-	rm main
+.PHONY: clean
+
+clean:
+	rm -f *.o
+	rm -f main

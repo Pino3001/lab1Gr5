@@ -36,6 +36,7 @@ float Jornalero::get_sueldo_peso()
     {
         return temp;
     }
+    return temp;
 }
 float Jornalero::get_sueldo_dolar()
 {
@@ -49,4 +50,5 @@ float Jornalero::get_sueldo_dolar()
     {
         return temp;
     }
+    return temp;
 }

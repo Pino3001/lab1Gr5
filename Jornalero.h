@@ -21,6 +21,6 @@ public:
     float get_sueldo_peso();
     float get_sueldo_dolar();
 
-    ~Jornalero();
+    //~Jornalero();
 };
 #endif

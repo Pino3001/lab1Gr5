@@ -12,19 +12,12 @@ public:
     paga();
     paga(float, moneda);
 
-    void setMonto(float);
-    void setTipoMoneda(moneda);
-
     float getMonto();
     moneda getTipoMoneda();
 
-    paga a_peso(float);
-    paga a_dolar(float);
+    paga a_peso();
+    paga a_dolar();
 
-    ~paga();
 };
-
-
-
 
 #endif

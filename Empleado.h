@@ -36,5 +36,4 @@ virtual float get_sueldo_dolar()=0;
 virtual ~Empleado();
 
 };
-
 #endif

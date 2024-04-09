@@ -2,7 +2,7 @@
 #define EMPRESA_H
 
 #include <string>
-#include "Empleado.h"
+class Empleado;
 
 #define MAX_EMPLEADO 100
 

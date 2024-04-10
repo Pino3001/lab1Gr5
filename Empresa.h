@@ -2,9 +2,9 @@
 #define EMPRESA_H
 
 #include <string>
-class Empleado;
+#include "definiciones.h"
+class Empleado; // Declaracion de intencion, evita circularidad al compilar.
 
-#define MAX_EMPLEADO 100
 
 using namespace std;
 
@@ -33,7 +33,8 @@ public:
     void addEmpleado(Empleado *);
     void removEmpleado(Empleado *);
 
-    int total_sueldo_peso();
-    int total_sueldo_dolar();
+    float total_sueldo_peso();
+    float total_sueldo_dolar();
+    ~Empresa();
 };
 #endif

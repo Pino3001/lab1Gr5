@@ -2,8 +2,7 @@
 
 #include <string>
 #include "Empleado.h"
-
-#define MAX_EMPLEADO 100
+#include "iostream"
 
 using namespace std;
 
@@ -64,13 +63,15 @@ void Empresa::addEmpleado(Empleado *emp)
     /*Cambiar por for si se pueden usar return o break*/
     bool flag = true;
     int i = 0;
-    while (i < MAX_EMPLEADO && flag == true)
+    while (flag && i < MAX_EMPLEADO)
     { // Recorro el arreglo de empleados y coloco el empleado pasado en un lugar vacio
         if (empleados[i] == NULL)
         {
+            cout<< " \n- " << i <<  " \n";
             this->empleados[i] = emp;
             flag = false;
         }
+        i++;
     }
     /*VER COMO MANEJAR LOS CASOS DE DONDE EL ARREGLO ESTE LLENO*/
 }
@@ -85,7 +86,7 @@ void Empresa::removEmpleado(Empleado *emp)
     }
 }
 
-int Empresa::total_sueldo_peso()
+float Empresa::total_sueldo_peso()
 {
 
     int tot = 0;
@@ -98,7 +99,7 @@ int Empresa::total_sueldo_peso()
     }
     return tot;
 }
-int Empresa::total_sueldo_dolar()
+float Empresa::total_sueldo_dolar()
 { // Recorro areglo de empleados de la empresa y sumo todos los sueldos
     int tot = 0;
     for (int i = 0; i < MAX_EMPLEADO; i++)
@@ -109,4 +110,14 @@ int Empresa::total_sueldo_dolar()
         }
     }
     return tot;
+}
+
+Empresa:: ~Empresa(){
+    for (int i = 0; i < MAX_EMPLEADO; i++)
+    {
+        delete this->empleados[i];
+        this->empleados[i] = NULL;
+
+    }
+    
 }

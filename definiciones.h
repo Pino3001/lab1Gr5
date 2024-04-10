@@ -1,0 +1,2 @@
+#define VALOR_DOLAR 39.05
+#define MAX_EMPLEADO 50

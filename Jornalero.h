@@ -12,7 +12,7 @@ private:
     int horas;
 public:
     Jornalero();
-    Jornalero(string, string, int, Empresa*, paga, int);
+    Jornalero(string Nombre, string CI, int Edad, Empresa*, paga, int Horas);
 
     void setHoras(int);
 

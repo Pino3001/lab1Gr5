@@ -18,7 +18,7 @@ private:
 
 public:
     Empresa();
-    Empresa(string, string, int);
+    Empresa(string nombre, string nombre_legal, int rut);
     // Empresa(Empleado);
 
     void setNombre(string);
@@ -35,6 +35,8 @@ public:
 
     float total_sueldo_peso();
     float total_sueldo_dolar();
+
+    Empleado* buscar_empleado(string Ci);
     ~Empresa();
 };
 #endif

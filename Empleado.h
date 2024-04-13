@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Empresa.h"
-#include "paga.h"
+#include "Paga.h"
 #include "Cambio.h"
 using namespace std;
 
@@ -13,22 +13,22 @@ private:
     string nombre;
     string ci;
     int edad;
-    paga valor_hora;
+    Paga valor_hora;
     Empresa * empresa;
 public:
     Empleado();
-    Empleado(string, string, int, Empresa*, paga);
+    Empleado(string nombre, string ci, int edad, Empresa* empresa, Paga valor_hora);
 
     void setNombre(string);
     void setCi(string);
     void setEdad(int);
-    void setValor_hora(paga);
+    void setValor_hora(Paga);
     void setEmpresa(Empresa*);
     
     string getNombre();
     string getCi();
     int getEdad();
-    paga getValorhora();
+    Paga getValorhora();
     Empresa* getEmpresa();
 
 virtual float get_sueldo_peso()=0;

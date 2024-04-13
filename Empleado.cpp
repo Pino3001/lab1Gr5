@@ -2,7 +2,7 @@
 
 #include <string>
 #include "Empresa.h"
-#include "paga.h"
+#include "Paga.h"
 #include "Cambio.h"
 
 using namespace std;
@@ -13,7 +13,7 @@ Empleado::Empleado()
     this->ci = "0000000-0";
     this->edad = 0;
 }
-Empleado::Empleado(string nombre, string ci, int edad, Empresa *emp, paga valHora)
+Empleado::Empleado(string nombre, string ci, int edad, Empresa *emp, Paga valHora)
 {
     this->nombre = nombre;
     this->ci = ci;
@@ -37,7 +37,7 @@ void Empleado::setEdad(int edad)
 {
     this->edad = edad;
 }
-void Empleado::setValor_hora(paga valorH)
+void Empleado::setValor_hora(Paga valorH)
 {
     this->valor_hora = valorH;
 }
@@ -61,7 +61,7 @@ int Empleado::getEdad()
 {
     return this->edad;
 }
-paga Empleado::getValorhora()
+Paga Empleado::getValorhora()
 {
     return this->valor_hora;
 }

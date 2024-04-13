@@ -5,7 +5,7 @@
 using namespace std;
 
 Fijo ::Fijo() : Empleado() {}
-Fijo ::Fijo(string nombre, string ci, int edad, Empresa *emp, paga valHora)
+Fijo ::Fijo(string nombre, string ci, int edad, Empresa *emp, Paga valHora)
     : Empleado(nombre, ci, edad, emp, valHora) {}
 
 float Fijo::get_sueldo_peso()
@@ -36,3 +36,5 @@ float Fijo::get_sueldo_dolar()
     }
     return temp;
 }
+
+Fijo::~Fijo(){};

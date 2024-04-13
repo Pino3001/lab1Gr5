@@ -3,21 +3,20 @@
 
 #include "moneda.h"
 
-class paga
+class Paga
 {
 private:
     float monto;
     moneda tipo_moneda;
 public:
-    paga();
-    paga(float, moneda);
+    Paga();
+    Paga(float, moneda);
 
     float getMonto();
     moneda getTipoMoneda();
 
-    paga a_peso();
-    paga a_dolar();
+    Paga a_peso();
+    Paga a_dolar();
 
 };
-
 #endif

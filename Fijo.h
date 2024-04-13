@@ -10,11 +10,11 @@ class Fijo : public Empleado
 
 public:
     Fijo();
-    Fijo(string, string, int, Empresa*, paga);
+    Fijo(string nombre, string ci, int edad, Empresa*, Paga valor_hora);
 
     float get_sueldo_peso();
     float get_sueldo_dolar();
-
-    //~Fijo();
+    
+    ~Fijo();
 };
 #endif

@@ -1,4 +1,4 @@
-#include "paga.h"
+#include "Paga.h"
 
 #include <string>
 #include "moneda.h"
@@ -6,27 +6,27 @@
 
 using namespace std;
 
-paga::paga()
+Paga::Paga()
 {
     this->monto = 0;
     this->tipo_moneda = us;
 }
-paga::paga(float monto, moneda moneda)
+Paga::Paga(float monto, moneda moneda)
 {
     this->monto = monto;
     this->tipo_moneda = moneda;
 }
 
-float paga::getMonto()
+float Paga::getMonto()
 {
     return this->monto;
 }
-moneda paga::getTipoMoneda()
+moneda Paga::getTipoMoneda()
 {
     return this->tipo_moneda;
 }
 
-paga paga::a_peso()
+Paga Paga::a_peso()
 {
     if (this->tipo_moneda == us)
     {
@@ -35,11 +35,11 @@ paga paga::a_peso()
     else
     {
         monto = Cambio::a_peso(this->monto);
-        paga p = paga(monto, us);
+        Paga p = Paga(monto, us);
         return p;
     }
 }
-paga paga::a_dolar()
+Paga Paga::a_dolar()
 {
     if (this->tipo_moneda == usd)
     {
@@ -49,7 +49,7 @@ paga paga::a_dolar()
     {
 
         monto = Cambio::a_dolar(this->monto);
-        paga p(monto, usd);
+        Paga p(monto, usd);
         return p;
     }
 }

@@ -82,6 +82,7 @@ void Empresa::removEmpleado(Empleado *emp)
         if (this->empleados[i] == emp)
         {
             this->empleados[i] = NULL;
+            delete emp;
         }
     }
 }
@@ -110,6 +111,18 @@ float Empresa::total_sueldo_dolar()
         }
     }
     return tot;
+}
+
+Empleado* Empresa::buscar_empleado(string CI){
+    for (int i = 0; i < MAX_EMPLEADO; i++)
+    {
+        if (this->empleados[i]->getCi() == CI )
+        {
+            return this->empleados[i];
+        }
+        
+    }
+    return NULL;    
 }
 
 Empresa:: ~Empresa(){

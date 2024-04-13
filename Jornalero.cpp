@@ -8,7 +8,7 @@ Jornalero::Jornalero() : Empleado()
 {
     this->horas = 0;
 }
-Jornalero::Jornalero(string nombre, string ci, int edad, Empresa *emp, paga valHora, int horas)
+Jornalero::Jornalero(string nombre, string ci, int edad, Empresa *emp, Paga valHora, int horas)
     : Empleado(nombre, ci, edad, emp, valHora)
 {
     this->horas = horas;
@@ -52,3 +52,5 @@ float Jornalero::get_sueldo_dolar()
     }
     return temp;
 }
+
+Jornalero::~Jornalero(){};

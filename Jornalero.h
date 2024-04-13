@@ -12,7 +12,7 @@ private:
     int horas;
 public:
     Jornalero();
-    Jornalero(string Nombre, string CI, int Edad, Empresa*, paga, int Horas);
+    Jornalero(string Nombre, string CI, int Edad, Empresa*, Paga valor_hora, int Horas);
 
     void setHoras(int);
 
@@ -21,6 +21,6 @@ public:
     float get_sueldo_peso();
     float get_sueldo_dolar();
 
-    //~Jornalero();
+    ~Jornalero();
 };
 #endif

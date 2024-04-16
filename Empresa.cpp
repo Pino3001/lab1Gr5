@@ -21,7 +21,7 @@ Empresa::Empresa(string nombre, string nombre_legal, int rut)
     this->nombre = nombre;
     this->nombre_legal = nombre_legal;
     this->rut = rut;
-        for (int i = 0; i < MAX_EMPLEADO; ++i)
+    for (int i = 0; i < MAX_EMPLEADO; ++i)
     {
         this->empleados[i] = NULL; // Inicializar cada elemento como null
     }
@@ -67,13 +67,15 @@ void Empresa::addEmpleado(Empleado *emp)
     { // Recorro el arreglo de empleados y coloco el empleado pasado en un lugar vacio
         if (empleados[i] == NULL)
         {
-            cout<< " \n- " << i <<  " \n";
             this->empleados[i] = emp;
             flag = false;
         }
         i++;
     }
-    /*VER COMO MANEJAR LOS CASOS DE DONDE EL ARREGLO ESTE LLENO*/
+    if (flag)
+    {
+        cout << "\n-- No es posible ingresar un nuevo empleado al sistema. --";
+    }
 }
 void Empresa::removEmpleado(Empleado *emp)
 {
@@ -113,24 +115,30 @@ float Empresa::total_sueldo_dolar()
     return tot;
 }
 
-Empleado* Empresa::buscar_empleado(string CI){
+Empleado *Empresa::buscar_empleado(string CI)
+{
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
-        if (this->empleados[i]->getCi() == CI )
+        cout << "\n"
+             << i;
+        if (this->empleados[i] != NULL)
         {
-            return this->empleados[i];
+            if (this->empleados[i]->getCi() == CI)
+            {
+                cout << "encontro";
+
+                return this->empleados[i];
+            }
         }
-        
     }
-    return NULL;    
+    return NULL;
 }
 
-Empresa:: ~Empresa(){
+Empresa::~Empresa()
+{
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
         delete this->empleados[i];
         this->empleados[i] = NULL;
-
     }
-    
 }

@@ -22,7 +22,7 @@ Empleado::Empleado(string nombre, string ci, int edad, Empresa *emp, Paga valHor
 
     /*Setear empleado en la empresa*/
     this->empresa = emp;
-    this->empresa->addEmpleado(this);
+    emp->addEmpleado(this);
 }
 
 void Empleado::setNombre(string nombre)

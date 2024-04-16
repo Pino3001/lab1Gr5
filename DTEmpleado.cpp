@@ -1,6 +1,7 @@
 #include "DTEmpleado.h"
 #include "Empleado.h"
 #include <string>
+#include "iostream"
 
 using namespace std;
 
@@ -21,18 +22,34 @@ DTEmpleado::DTEmpleado(Empleado *empleado)
     this->sueldo_mensual = empleado->get_sueldo_peso();
 }
 
-string DTEmpleado::getNombre(){
+string DTEmpleado::getNombre()
+{
     return this->nombre;
 }
-string DTEmpleado::getCi(){
+string DTEmpleado::getCi()
+{
     return this->ci;
 }
-int DTEmpleado:: getEdad(){
+int DTEmpleado::getEdad()
+{
     return this->edad;
 }
-string DTEmpleado::getTrabaja_en(){
+string DTEmpleado::getTrabaja_en()
+{
     return this->trabaja_en;
 }
-float DTEmpleado:: getSueldoMensual(){
+float DTEmpleado::getSueldoMensual()
+{
     return this->sueldo_mensual;
+}
+void DTEmpleado::mostrar_datos_empleados()
+{
+    cout << "\n\n";
+    cout << "\t ################################## "; 
+    cout << "\n\n\t -- Nombre: " << this->getNombre();
+    cout << "\n\t -- Cedula de identidad: " << this->getCi();
+    cout << "\n\t -- Edad: " << this->getEdad();
+    cout << "\n\t -- Sueldo mensual: " << this->getSueldoMensual();
+    cout << "\n\n";
+    cout << "\t ################################## "; 
 }

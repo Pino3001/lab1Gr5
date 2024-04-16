@@ -23,5 +23,6 @@ public:
     int getEdad();
     string getTrabaja_en();
     float getSueldoMensual();
+    void mostrar_datos_empleados();
 };
 #endif

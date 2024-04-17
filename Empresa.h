@@ -29,6 +29,7 @@ public:
     string getNombre();
     string getNombre_legal();
     int getRut();
+    Empleado* getEmpleados();
 
     void addEmpleado(Empleado *);
     void removEmpleado(Empleado *);

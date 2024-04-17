@@ -18,7 +18,9 @@ DTEmpleado::DTEmpleado(Empleado *empleado)
     this->nombre = empleado->getNombre();
     this->ci = empleado->getCi();
     this->edad = empleado->getEdad();
+    // Setea la empresa en la que trabaja el empleado.
     this->trabaja_en = empleado->getEmpresa()->getNombre();
+    // Calcula el sueldo del empleado en pesos y lo setea al atributo.
     this->sueldo_mensual = empleado->get_sueldo_peso();
 }
 
@@ -43,7 +45,7 @@ float DTEmpleado::getSueldoMensual()
     return this->sueldo_mensual;
 }
 void DTEmpleado::mostrar_datos_empleados()
-{
+{ //Muestra todos los datos del empleado.
     cout << "\n\n";
     cout << "\t ################################## "; 
     cout << "\n\n\t -- Nombre: " << this->getNombre();

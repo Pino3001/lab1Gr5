@@ -20,7 +20,7 @@ Empleado::Empleado(string nombre, string ci, int edad, Empresa *emp, Paga valHor
     this->edad = edad;
     this->valor_hora = valHora;
 
-    /*Setear empleado en la empresa*/
+    // Setear empleado en la empresa.
     this->empresa = emp;
     emp->addEmpleado(this);
 }
@@ -45,8 +45,8 @@ void Empleado::setEmpresa(Empresa *emp)
 {   // Elimino empleado de la anterior empresa y lo asigno a la nueva.
     this->empresa->removEmpleado(this);
     this->empresa = emp;
+    //Seteo el empleado nuevo en empresa.
     this->empresa->addEmpleado(this);
-    /*Setear empleado en empresa*/
 }
 
 string Empleado::getNombre()
@@ -70,6 +70,6 @@ Empresa *Empleado::getEmpresa()
     return this->empresa;
 }
 Empleado::~Empleado()
-{
+{ // Al eliminar el objeto, se llama a la funcion removeEmpleado() para quitarlo del arreglo de la empresa.
     this->empresa->removEmpleado(this);
 }

@@ -13,7 +13,7 @@ Empresa::Empresa()
     this->rut = 00000000000;
     for (int i = 0; i < MAX_EMPLEADO; ++i)
     {
-        this->empleados[i] = NULL; // Inicializar cada elemento como null
+        this->empleados[i] = NULL; // Inicializa cada elemento como NULL en el arreglo de empleados.
     }
 }
 Empresa::Empresa(string nombre, string nombre_legal, int rut)
@@ -23,7 +23,7 @@ Empresa::Empresa(string nombre, string nombre_legal, int rut)
     this->rut = rut;
     for (int i = 0; i < MAX_EMPLEADO; ++i)
     {
-        this->empleados[i] = NULL; // Inicializar cada elemento como null
+        this->empleados[i] = NULL; // Inicializa cada elemento como NULL en el arreglo de empleados.
     }
 }
 
@@ -56,7 +56,10 @@ int Empresa::getRut()
 {
     return this->rut;
 }
-/*Ver como manejar el getter de empleados sin dar acceso a la clase y permitir que se modifique*/
+Empleado* Empresa::getEmpleados()
+{
+    return *this->empleados;
+}
 
 void Empresa::addEmpleado(Empleado *emp)
 {
@@ -73,12 +76,12 @@ void Empresa::addEmpleado(Empleado *emp)
         i++;
     }
     if (flag)
-    {
+    { // Caso donde el arreglo esta lleno.
         cout << "\n-- No es posible ingresar un nuevo empleado al sistema. --";
     }
 }
 void Empresa::removEmpleado(Empleado *emp)
-{
+{ // Elimina un empleado del arreglo de empleados de la empresa y deja la posicion apuntando a NULL.
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
         if (this->empleados[i] == emp)
@@ -90,7 +93,7 @@ void Empresa::removEmpleado(Empleado *emp)
 }
 
 float Empresa::total_sueldo_peso()
-{
+{ // Recorro areglo de empleados de la empresa y sumo todos los sueldos.
 
     int tot = 0;
     for (int i = 0; i < MAX_EMPLEADO; i++)
@@ -103,7 +106,7 @@ float Empresa::total_sueldo_peso()
     return tot;
 }
 float Empresa::total_sueldo_dolar()
-{ // Recorro areglo de empleados de la empresa y sumo todos los sueldos
+{ // Recorro areglo de empleados de la empresa y sumo todos los sueldos.
     int tot = 0;
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
@@ -116,17 +119,13 @@ float Empresa::total_sueldo_dolar()
 }
 
 Empleado *Empresa::buscar_empleado(string CI)
-{
+{ // Busca un empleado con la cedula dada dentro de el arreglo de empleados en la empresa.
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
-        cout << "\n"
-             << i;
         if (this->empleados[i] != NULL)
         {
             if (this->empleados[i]->getCi() == CI)
             {
-                cout << "encontro";
-
                 return this->empleados[i];
             }
         }
@@ -135,7 +134,7 @@ Empleado *Empresa::buscar_empleado(string CI)
 }
 
 Empresa::~Empresa()
-{
+{ // Borra todos los empleados contenidos en la empresa.
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
         delete this->empleados[i];

@@ -19,7 +19,9 @@ DTEmpresa::DTEmpresa(Empresa *empresa)
     this->nombre = empresa->getNombre();
     this->nombre_legal = empresa->getNombre_legal();
     this->rut = empresa->getRut();
+    // Setea el gasto total de la empresa en concepto de sueldo a unos de sus atributos.
     this->total_sueldos_peso = empresa->total_sueldo_peso();
+    // Setea el gasto total de la empresa en concepto de sueldo a unos de sus atributos.
     this->total_sueldos_dolar = empresa->total_sueldo_dolar();
 }
 
@@ -47,7 +49,7 @@ float DTEmpresa::getTotal_sueldos_dolar()
 }
 
 void DTEmpresa::detalles_empresa()
-{
+{ // Muestra los detalles de la empresa. 
     cout << "\t ############################### "; 
     cout << "\n\n\t-- Nombre: " << this->getNombre() << "\n";
     cout << "\t-- Razon social: " << this->getNombre_legal() << "\n";
@@ -55,7 +57,7 @@ void DTEmpresa::detalles_empresa()
     cout << "\t ############################### \n\n"; 
 }
 void DTEmpresa::mostrar_total_pesos()
-{
+{ // Muestra el gasto total de la empresa en pesos.
     cout << "\n\n"
          << "Gasto total de "
          << this->getNombre();
@@ -64,7 +66,7 @@ void DTEmpresa::mostrar_total_pesos()
          << " us. \n\n";
 }
 void DTEmpresa::mostrar_total_dolares()
-{
+{ // Muestra el gasto total de la empresa en dolares.
     cout << "\n\n"
          << "Gasto total de "
          << this->getNombre();

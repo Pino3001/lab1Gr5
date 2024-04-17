@@ -21,7 +21,6 @@ int main()
     int opt;
     do
     {
-
         cout << "\n\n\t \t ++ Sistema de sueldos. ++ \n\n\n";
         cout << "> [1] Nueva empresa.\n";
         cout << "> [2] Ingresar en empresa.\n";
@@ -47,7 +46,7 @@ int main()
                 cin >> nomE;
                 cout << "\n >> Ingrese la razon social de su empresa: ";
                 cin >> RS;
-                cout << "\n >> Engrese el numero de rut: ";
+                cout << "\n >> Ingrese el numero de rut: ";
                 cin >> rut;
                 cout << "\n"
                         "\n \t\t -- Guardar nueva empresa? -- [S/N]: ";
@@ -56,21 +55,20 @@ int main()
                 {
                     string otraE;
                     Empresa *e = new Empresa(nomE, RS, rut);
-
+                    // Ingreso la empresa en la lista arriba definida.
                     listaEmpresas->push_front(e);
 
                     cout << "\n \t -- Desea ingresar una nueva empresa al sistema? -- [S/N]: ";
                     cin >> otraE;
                     if (otraE != "S" && otraE != "s")
-                    {
-
+                    { // Si no se desea ingresar nuevas empresas, salgo de la iteracion.
                         exit_1 = true;
                     }
                 }
                 else
                 {
                     string otraE;
-
+                    // Si no se desea ingresar nuevas empresas, salgo de la iteracion.
                     cout << "\n \t -- Desea ingresar una nueva empresa al sistema? -- [S/N]: ";
                     cin >> otraE;
                     if (otraE != "S" && otraE != "s")
@@ -84,31 +82,32 @@ int main()
         {
             int y, rut;
             string RS;
-            Empresa *emp = NULL;
+            Empresa *emp;
+
             cout << "\n\n\t\t ++ Sistema de empresas. ++ \n";
             cout << "\n > Buscar empresa por RUT o RAZON SOCIAL:  [1-RUT / 2-RAZON SOCIAL] : ";
             cin >> y;
             if (y == 1)
-            {
+            { // Busco empresa por RUT.
                 cout << "\n >> Ingrese el RUT de la empresa a ingresar: ";
                 cin >> rut;
                 for (auto &&e : *listaEmpresas)
                 {
                     if (e->getRut() == rut)
-                    {
+                    { // Encontre la empresa en la lista.
                         emp = e;
                         break;
                     }
                 }
             }
             else if (y == 2)
-            {
+            { // Busco empresa por su razon social.
                 cout << "\n >> Ingrese la RAZON SOCIAL de la empresa a ingresar: ";
                 cin >> RS;
                 for (Empresa *e : *listaEmpresas)
                 {
                     if (e->getNombre_legal() == RS)
-                    {
+                    { // Encontre la empresa en la lista.
                         emp = e;
                         break;
                     }
@@ -123,12 +122,13 @@ int main()
                 cout << "\n\n \t\t -- No se encontro la empresa en el sistema. --\n";
             }
             else
-            {
+            { // Se encontro la empresa a buscar, entra en las opciones para interactuar con esta empresa encontrada.
                 bool exit_2 = false;
                 DTEmpresa dtempresa(emp);
                 do
                 {
                     int optEmp;
+
                     cout << "\n\n\t\t ++ Sistema de gestion de " << emp->getNombre() << " ++\n\n";
                     cout << " [1] - Ver datos de la empresa. \n";
                     cout << " [2] - Ingresar nuevo empleado.\n";
@@ -138,12 +138,13 @@ int main()
                     cout << " [6] - Salir. \n\n";
                     cout << "[Opcion] ~ ";
                     cin >> optEmp;
+
                     if (optEmp == 1)
                     {
                         bool exit_2_1 = false;
                         string a;
                         do
-                        {
+                        { // Muestra los datos de la empresa.
                             dtempresa.detalles_empresa();
                             cout << "\n [ Salir -S ] : ";
                             cin >> a;
@@ -154,8 +155,9 @@ int main()
                         } while (!exit_2_1);
                     }
                     else if (optEmp == 2)
-                    {
+                    { // Ingresa un empleado a la empresa.
                         bool exit_2_2 = false;
+
                         cout << "\n\n\t \t ++ Registro de empleado. ++ \n\n\n";
                         cout << " - A continuacion siga los pasos para dar registro a un nuevo empleado. -\n";
                         do
@@ -206,18 +208,21 @@ int main()
                             {
                                 string otroEmpl;
                                 Paga p = Paga(monto_hora, mon);
+
                                 if (auxTipo == 1)
-                                {
+                                { // Ingresa un empleado de tipo Jornalero.
                                     Jornalero *j = new Jornalero(nombre, CI, edad, emp, p, horasT);
                                 }
                                 else if (auxTipo == 2)
-                                {
+                                { // Ingresa un empleado de tipo Fijo.
                                     Fijo *f = new Fijo(nombre, CI, edad, emp, p);
                                 }
+
                                 cout << "\n \t\t --Desea ingresar un nuevo empleado al sistema?-- [S/N] : ";
                                 cin >> otroEmpl;
+
                                 if (otroEmpl != "S" && otroEmpl != "s")
-                                {
+                                { // No se desea ingresar nuevos empleados.
                                     exit_2_2 = true;
                                 }
                             }
@@ -228,27 +233,29 @@ int main()
                                 cout << "\n \t\t --Desea ingresar un nuevo empleado al sistema?-- [S/N] : ";
                                 cin >> otroE;
                                 if (otroE != "S" && otroE != "s")
-                                {
+                                { // No se desea ingresar nuevos empleados.
                                     exit_2_2 = true;
                                 }
                             }
                         } while (!exit_2_2);
                     }
                     else if (optEmp == 3)
-                    {
+                    { // Muestra los detalles de un empleado a buscar.
                         string cedula;
+                        Empleado *empleado;
 
                         cout << "\n\n\t \t ++ Buscar empleado. ++ \n\n\n";
                         cout << "\n >> Ingrese la cedula de identidad del empleado que desea buscar: ";
                         cin >> cedula;
-                        Empleado *empleado;
+                        // Busca el empleado dentro de la empresa.
                         empleado = emp->buscar_empleado(cedula);
+
                         if (empleado == NULL)
-                        {
+                        { // No encontro el empleado
                             cout << "\n \t\t -- No se encontro el empleado en el sistema. -- ";
                         }
                         else
-                        {
+                        { // Encontre empleado y creo un Datatype para mostrar sus detalles.
                             DTEmpleado dtemple(empleado);
                             dtemple.mostrar_datos_empleados();
                             cout << "\n\t\t Empleados: \n"
@@ -256,40 +263,48 @@ int main()
                         }
                     }
                     else if (optEmp == 4)
-                    {
+                    { // Elimina un empleado de la empresa.
                         string cedula;
+                        Empleado *empleado;
+
                         cout << "\n\n\t \t ++ Eliminar empleado. ++ \n\n\n";
                         cout << "\n >> Ingrese la cedula de identidad del empleado que desea eliminar: ";
                         cin >> cedula;
-                        Empleado *empleado = emp->buscar_empleado(cedula);
+
+                        empleado = emp->buscar_empleado(cedula);
+
                         if (empleado == NULL)
-                        {
+                        { // No encontre empleado.
                             cout << "\n \t\t --No se encontro el empleado en el sistema.-- ";
                         }
                         else
-                        {
+                        { // Encontre
                             string aux;
+
                             cout << "\n \t\t --Desea Quitar a " << empleado->getNombre() << " de la Empresa " << dtempresa.getNombre() << "-- [S/N] :";
                             cin >> aux;
+
                             if (aux == "s" || aux == "S")
-                            {
+                            { // Llamo a una funcion de Empresa que me elimina un empleado de la empresa.
                                 emp->removEmpleado(empleado);
                                 cout << "\n\t\t --El empleado a sido eliminado de la empresa!!!-- ";
                             }
                         }
                     }
                     else if (optEmp == 5)
-                    {
+                    { // Calculo el gasto de la empresa sumando el sueldo de todos sus empleados.
                         int aux;
+
                         cout << "\n\t\t ++ Total de sueldos a pagar por." << dtempresa.getNombre() << " ++\n\n";
                         cout << "\n Ingrese el tipo de moneda en el que quiere calcular: [1- Pesos/ 2- Dolares]: ";
                         cin >> aux;
+
                         if (aux == 1)
-                        {
+                        { // Calculo en pesos.
                             dtempresa.mostrar_total_pesos();
                         }
                         else if (aux == 2)
-                        {
+                        { // Calculo en dolares.
                             dtempresa.mostrar_total_dolares();
                         }
                         else
@@ -298,7 +313,7 @@ int main()
                         }
                     }
                     else
-                    {
+                    { // Salgo del menu de la empresa.
                         exit_2 = true;
                     }
 
@@ -306,15 +321,17 @@ int main()
             }
         }
         else if (opt == 3)
-        {
+        { // Elimina una empresa de la lista.
             int y, rut;
             string RS;
-            Empresa *emp = NULL;
+            Empresa *emp;
+
             cout << "\n\t\t ++ Eliminar empresas. ++\n\n";
             cout << "\n Buscar empresa por RUT o RAZON SOCIAL: [1-RUT / 2-RAZON SOCIAL]: ";
             cin >> y;
+
             if (y == 1)
-            {
+            { // Busco la empresa por Rut.
                 cout << "\n >> Ingrese el RUT de la empresa a eliminar: ";
                 cin >> rut;
                 for (auto *e : *listaEmpresas)
@@ -327,9 +344,10 @@ int main()
                 }
             }
             else if (y == 2)
-            {
+            { // Busco la empresa por su razon social.
                 cout << "\n >> Ingrese la RAZON SOCIAL de la empresa a eliminar: ";
                 cin >> RS;
+
                 for (Empresa *e : *listaEmpresas)
                 {
                     if (e->getNombre_legal() == RS)
@@ -344,19 +362,17 @@ int main()
                 cout << "\n \t\t-- Opcion invalida!!! --";
             }
             if (emp == NULL)
-            {
-                listaEmpresas->remove(emp);
-                delete emp;
+            { // No se encontro la empresa.
                 cout << "\n\n \t\t-- No se encontro la empresa en el sistema. -- \n";
             }
             else
             {
-                listaEmpresas->remove(emp);
-                delete emp;
+                listaEmpresas->remove(emp); // Quito de la lista.
+                delete emp;// Elimina la instancia de empresa, junto con los de Empleados asociados.
             }
         }
         else
-        {
+        { // Salgo del sistema.
             salir = true;
         }
     } while (salir == false);

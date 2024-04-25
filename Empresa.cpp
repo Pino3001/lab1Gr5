@@ -1,7 +1,9 @@
 #include "Empresa.h"
 
-#include <string>
 #include "Empleado.h"
+#include "DTEmpleado.h"
+#include <string>
+#include <list>
 #include "iostream"
 
 using namespace std;
@@ -56,7 +58,7 @@ int Empresa::getRut()
 {
     return this->rut;
 }
-Empleado* Empresa::getEmpleados()
+Empleado *Empresa::getEmpleados()
 {
     return *this->empleados;
 }
@@ -131,6 +133,21 @@ Empleado *Empresa::buscar_empleado(string CI)
         }
     }
     return NULL;
+}
+
+list<DTEmpleado> Empresa::listar_empleados()
+{
+    list<DTEmpleado> listDT;
+
+    for (int i = 0; i < MAX_EMPLEADO; i++)
+    {
+        if (this->empleados[i] != NULL)
+        {
+            DTEmpleado dtemp(this->empleados[i]);
+            listDT.push_front(dtemp);
+        }
+    }
+    return listDT;
 }
 
 Empresa::~Empresa()

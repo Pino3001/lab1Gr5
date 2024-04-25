@@ -25,7 +25,9 @@ float Fijo::get_sueldo_peso()
 float Fijo::get_sueldo_dolar()
 { // Retorno el sueldo del empleado en dolares.
     float temp;
+
     temp = this->getValorhora().getMonto() * 40;
+
     if (this->getValorhora().getTipoMoneda() == us)
     { // Si el sueldo esta en pesos lo calculo en dolares.
         temp = Cambio::a_dolar(temp);

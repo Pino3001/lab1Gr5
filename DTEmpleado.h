@@ -13,7 +13,7 @@ private:
     string ci;
     int edad;
     string trabaja_en;
-    float sueldo_mensual;
+    float mensualPesos;
 public:
     DTEmpleado();
     DTEmpleado(Empleado * empleado);
@@ -22,7 +22,7 @@ public:
     string getCi();
     int getEdad();
     string getTrabaja_en();
-    float getSueldoMensual();
+    float getSueldoMensualPesos();
     void mostrar_datos_empleados();
 };
 #endif

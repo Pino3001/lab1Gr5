@@ -2,9 +2,11 @@
 #define EMPRESA_H
 
 #include <string>
+#include <list>
 #include "definiciones.h"
-class Empleado; // Declaracion de intencion, evita circularidad al compilar.
 
+class Empleado; // Declaracion de intencion, evita circularidad al compilar.
+class DTEmpleado;
 
 using namespace std;
 
@@ -38,6 +40,7 @@ public:
     float total_sueldo_dolar();
 
     Empleado* buscar_empleado(string Ci);
+    list <DTEmpleado> listar_empleados();
     ~Empresa();
 };
 #endif

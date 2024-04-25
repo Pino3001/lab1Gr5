@@ -1,11 +1,13 @@
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
 
-#include <string>
 #include "Empresa.h"
 #include "Paga.h"
 #include "Cambio.h"
+#include <string>
+
 using namespace std;
+
 
 class Empleado
 {

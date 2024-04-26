@@ -154,7 +154,9 @@ Empresa::~Empresa()
 { // Borra todos los empleados contenidos en la empresa.
     for (int i = 0; i < MAX_EMPLEADO; i++)
     {
-        delete this->empleados[i];
-        this->empleados[i] = NULL;
+        if (this->empleados[i] != NULL)
+        {
+            removEmpleado(this->empleados[i]);
+        }
     }
 }

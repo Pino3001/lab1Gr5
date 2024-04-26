@@ -11,7 +11,7 @@ DTEmpleado::DTEmpleado()
     this->ci = "None";
     this->edad = 0;
     this->trabaja_en = "None";
-    this->mensualPesos = 0;
+    this->sueldoPesos = 0;
 }
 DTEmpleado::DTEmpleado(Empleado *empleado)
 {
@@ -21,7 +21,7 @@ DTEmpleado::DTEmpleado(Empleado *empleado)
     // Setea la empresa en la que trabaja el empleado.
     this->trabaja_en = empleado->getEmpresa()->getNombre();
     // Calcula el sueldo del empleado en pesos y lo setea al atributo.
-    this->mensualPesos = empleado->get_sueldo_peso();
+    this->sueldoPesos = empleado->get_sueldo_peso();
 }
 
 string DTEmpleado::getNombre()
@@ -40,9 +40,9 @@ string DTEmpleado::getTrabaja_en()
 {
     return this->trabaja_en;
 }
-float DTEmpleado::getSueldoMensualPesos()
+float DTEmpleado::getSueldoPesos()
 {
-    return this->mensualPesos;
+    return this->sueldoPesos;
 }
 void DTEmpleado::mostrar_datos_empleados()
 { //Muestra todos los datos del empleado.
@@ -51,7 +51,7 @@ void DTEmpleado::mostrar_datos_empleados()
     cout << "\n\n\t -- Nombre: " << this->getNombre();
     cout << "\n\t -- Cedula de identidad: " << this->getCi();
     cout << "\n\t -- Edad: " << this->getEdad();
-    cout << "\n\t -- Sueldo mensual: " << this->getSueldoMensualPesos() <<" us";
+    cout << "\n\t -- Sueldo semanal: " << this->getSueldoPesos() <<" us";
     cout << "\n\n";
     cout << "\t ################################## "; 
 }

@@ -83,10 +83,10 @@ int main()
         {
             int y, rut;
             string RS;
-            Empresa *emp;
+            Empresa *emp = NULL;
 
             cout << "\n\n\t\t ++ Sistema de empresas. ++ \n";
-            cout << "\n > Buscar empresa por RUT o RAZON SOCIAL:  [1-RUT / 2-RAZON SOCIAL] : ";
+            cout << "\n > Buscar empresa, por RUT o RAZON SOCIAL:  [1-RUT / 2-RAZON SOCIAL] : ";
             cin >> y;
 
             if (y == 1)
@@ -131,7 +131,7 @@ int main()
                 {
                     int optEmp;
                     DTEmpresa dtempresa(emp);
-                    cout << "\n\n\t\t ++ Sistema de gestion de " << emp->getNombre() << " ++\n\n";
+                    cout << "\n\n\t\t ++ Sistema de gestion de \"" << emp->getNombre() << "\" ++\n\n";
                     cout << " [1] - Ver datos de la empresa. \n";
                     cout << " [2] - Ingresar nuevo empleado.\n";
                     cout << " [3] - Ver empleado en el sistema. \n";
@@ -191,7 +191,7 @@ int main()
                             }
                             else
                             {
-                                cout << "\n \t\t -- Tipo de moneda incorrecta!!! -- ";
+                                cout << "\n \t\t -- Tipo de cambio se coloco automaticamente en us!!! -- ";
                             }
                             if (auxTipo == 1 || auxTipo == 2)
                             {
@@ -315,19 +315,19 @@ int main()
                     { // Calculo el gasto de la empresa sumando el sueldo de todos sus empleados.
                         int aux;
 
-                        cout << "\n\t\t ++ Total de sueldos a pagar por." << dtempresa.getNombre() << " ++\n\n";
+                        cout << "\n\t\t ++ Total de sueldos a pagar por.\" " << dtempresa.getNombre() << "\"  ++\n\n";
                         cout << "\n Ingrese el tipo de moneda en el que quiere calcular: [1- Pesos/ 2- Dolares]: ";
                         cin >> aux;
 
                         if (aux == 1)
                         { // Calculo en pesos.
-                            cout << "\n\n -- El gasto mensual de la empresa en concepto de sueldo es de: "
-                                 << emp->total_sueldo_peso() << " Pesos. -- \n";
+                            cout << "\n\n || El gasto semanal de la empresa en concepto de sueldo es de: "
+                                 << emp->total_sueldo_peso() << " Pesos. || \n";
                         }
                         else if (aux == 2)
                         { // Calculo en dolares.
-                            cout << "\n\n -- El gasto mensual de la empresa en concepto de sueldo es de: "
-                                 << emp->total_sueldo_dolar() << " Dolares. -- \n";
+                            cout << "\n\n || El gasto semanal de la empresa en concepto de sueldo es de: "
+                                 << emp->total_sueldo_dolar() << " Dolares. || \n";
                         }
                         else
                         {
@@ -346,9 +346,9 @@ int main()
         { // Elimina una empresa de la lista.
             int y, rut;
             string RS;
-            Empresa *emp;
+            Empresa *emp = NULL;
 
-            cout << "\n\t\t ++ Eliminar empresas. ++\n\n";
+            cout << "\n\t\t ++ Eliminar empresa. ++\n\n";
             cout << "\n Buscar empresa por RUT o RAZON SOCIAL: [1-RUT / 2-RAZON SOCIAL]: ";
             cin >> y;
 
@@ -385,12 +385,19 @@ int main()
             }
             if (emp == NULL)
             { // No se encontro la empresa.
-                cout << "\n\n \t\t-- No se encontro la empresa en el sistema. -- \n";
+                cout << "\n\n\n  \t\t-- No se encontro la empresa en el sistema. -- \n";
             }
             else
             {
-                listaEmpresas->remove(emp); // Quito de la lista.
-                delete emp;                 // Elimina la instancia de empresa, junto con los de Empleados asociados.
+                char save;
+                cout << "\n \t\t --Desea Quitar a " << emp->getNombre() << " del sistema? "
+                     << "-- [S/N] :";
+                if (save == 's' || save == 'S')
+                {
+                    listaEmpresas->remove(emp); // Quito de la lista.
+                    delete emp;                 // Elimina la instancia de empresa, junto con los de Empleados asociados.
+                    cout << "\n \t\t --Se a quitado la empresa del sistema. ";
+                }
             }
         }
         else

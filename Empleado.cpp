@@ -69,7 +69,4 @@ Empresa *Empleado::getEmpresa()
 {
     return this->empresa;
 }
-Empleado::~Empleado()
-{ // Al eliminar el objeto, se llama a la funcion removeEmpleado() para quitarlo del arreglo de la empresa.
-    this->empresa->removEmpleado(this);
-}
+Empleado::~Empleado(){}
